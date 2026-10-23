@@ -1,0 +1,22 @@
+{
+  "name": "civontology-notebooks",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Civontology Notebooks - A digital garden built with Astro + Starlight",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "^0.30.0",
+    "@astrojs/sitemap": "^3.2.0",
+    "astro": "^5.0.0",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
