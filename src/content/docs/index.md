@@ -7,7 +7,7 @@ hero:
   tagline: A digital garden of notes on civontology. Built with Astro + Starlight.
   actions:
     - text: Get Started
-      link: /civontology-notebooks/notes/welcome/
+      link: /civontology-notebooks/getting-started/
       icon: right-arrow
       variant: primary
     - text: Community Forum
