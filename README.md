@@ -1,35 +1,288 @@
 # Civontology Notebooks
 
-Public repository for the Civontology Notebooks website.
-
-## 🌐 Live Site
-
-**https://notebooks.civontology.com**
-
-> This repo is automatically synced from [`labsbytir/civontology`](https://github.com/labsbytir/civontology) (private repo).
-> To edit content, make changes in the private repo's `notebooks/` folder.
-
-## About
-
 A digital garden of notes on civontology, built with **Astro + Starlight**.
 
-## Features
+🌐 **Live Site:** https://notebooks.civontology.com
 
-- ✅ **Astro 5** + **Starlight**
-- ✅ **Black theme** with dark/light mode
-- ✅ **Sticky header** with search
-- ✅ **Giscus comments**
-- ✅ **Community forum**
-- ✅ **Auto-generated sitemap**
-- ✅ **GitHub Pages** deployment
+---
 
-## Local Development
+## 📝 Quick Start
+
+### Writing Notes in Obsidian
+
+1. **Open the Obsidian vault** at `civontology notebook/`
+2. **Create a note** in any folder (or root for standalone)
+3. **The plugin auto-adds frontmatter** (or use templates below)
+4. **Run publish script:** `~/Documents/Notes/publish-note.sh`
+5. **Live in ~1-2 minutes!**
+
+### Auto-Publish (Optional)
 
 ```bash
-npm install
-npm run dev
+# Install fswatch (one-time)
+brew install fswatch
+
+# Start auto-sync (watches for changes)
+~/Documents/Notes/auto-sync-obsidian.sh
 ```
 
-## Deployment
+Now every save auto-publishes!
 
-Automatically deployed to GitHub Pages via GitHub Actions on every push to `main`.
+---
+
+## 🎨 Obsidian Plugin: Civontology Templates
+
+This vault includes a custom plugin that auto-adds templates.
+
+### Commands (Ctrl/Cmd + P)
+
+| Command | What It Does |
+|---------|--------------|
+| **Create Note with Template** | Creates note with frontmatter |
+| **Create Section with Template** | Creates folder + index.md with section frontmatter |
+| **Create Hidden Note** | Creates note hidden from sidebar |
+| **Insert Note Template** | Inserts template at cursor |
+| **Insert Section Template** | Inserts section template at cursor |
+
+### Ribbon Icon
+Click the **📝 file-plus icon** in the left sidebar to create a new note.
+
+### Auto-Template
+When you create a new `.md` file, the plugin auto-adds:
+- **Note template** for regular files
+- **Section template** for `index.md` in folders
+
+---
+
+## 📋 Templates
+
+### Note Template
+
+```markdown
+---
+title: My Note Title
+description: A brief description
+---
+
+# My Note Title
+
+Your content here...
+```
+
+### Section Template (Folder)
+
+Create an `index.md` in your folder:
+
+```markdown
+---
+title: My Section
+description: My Section section
+sidebar:
+  label: "🧠 My Custom Label"  # Custom name with emoji
+  order: 1                     # Sort order (1 = top)
+  collapsed: false             # Start expanded (default)
+---
+
+# My Section
+
+Welcome to the My Section section.
+```
+
+### Hidden Note (Draft)
+
+```markdown
+---
+title: Draft Notes
+description: Work in progress
+sidebar:
+  hidden: true                 # Hidden from sidebar (still accessible via URL)
+---
+
+# Draft Notes
+
+This note won't appear in the sidebar.
+```
+
+---
+
+## 📁 Folder Structure
+
+Folders in Obsidian become **collapsible sections** in the docs sidebar.
+
+### Basic Structure
+
+```
+civontology notebook/
+├── Ontology/           # → 📂 Section in sidebar
+│   ├── index.md        # Landing page (uses section template)
+│   ├── definition.md   # Page in section
+│   └── classes.md      # Page in section
+├── Brand/              # → 📂 Section in sidebar
+│   ├── index.md
+│   └── guidelines.md
+└── about-me.md         # → 📄 Standalone page (no section)
+```
+
+### Developers Folder (Separate!)
+
+The `Developers/` folder is **separate** from other sections:
+
+```
+civontology notebook/
+├── Ontology/           # → 📚 Notes section
+├── Brand/              # → 📚 Notes section
+├── Harvesting Data/    # → 📚 Notes section
+├── Developers/         # → 💻 Developers section (SEPARATE!)
+│   ├── index.md
+│   ├── api.md
+│   └── contributing.md
+└── about-me.md         # → 📄 Standalone
+```
+
+**Result in sidebar:**
+```
+📚 Notes
+   📂 Ontology
+   📂 Brand
+   📂 Harvesting Data
+💻 Developers        ← Separate group!
+   API Documentation
+   Contributing
+```
+
+---
+
+## 🎛️ Sidebar Control
+
+Control how folders appear using frontmatter in `index.md`:
+
+| Property | Example | Effect |
+|----------|---------|--------|
+| `sidebar.label` | `label: "🧠 Ontology"` | Custom name with emoji |
+| `sidebar.order` | `order: 1` | Sort order (1 = top) |
+| `sidebar.collapsed` | `collapsed: true` | Start collapsed |
+| `sidebar.hidden` | `hidden: true` | Hide from sidebar |
+
+### Examples
+
+**Custom Label with Emoji:**
+```yaml
+sidebar:
+  label: "🧠 Ontology"
+```
+
+**Start Collapsed:**
+```yaml
+sidebar:
+  collapsed: true
+```
+
+**Control Order:**
+```yaml
+sidebar:
+  order: 1  # Lower = higher in sidebar
+```
+
+**Hide from Sidebar:**
+```yaml
+sidebar:
+  hidden: true  # Still accessible via direct URL
+```
+
+---
+
+## 🚀 Publishing
+
+### Manual Publish
+
+```bash
+# Publish all notes
+~/Documents/Notes/publish-note.sh
+
+# Or from this directory:
+../../publish-note.sh
+```
+
+### What Happens
+
+1. **Folders** → `sections/FolderName/` (sidebar sections)
+2. **Developers folder** → `developers/` (separate sidebar group)
+3. **Root .md files** → `sections/` (standalone pages)
+4. **Auto-adds frontmatter** if missing
+5. **Commits & pushes** to GitHub
+6. **GitHub Actions** builds & deploys (~1-2 min)
+
+### Check Deployment
+
+https://github.com/labsbytir/civontology-notebooks/actions
+
+---
+
+## 🌐 Live URLs
+
+| URL | Description |
+|-----|-------------|
+| https://notebooks.civontology.com | Custom domain |
+| https://labsbytir.github.io/civontology-notebooks/ | GitHub Pages |
+| https://labsbytir.github.io/civontology-notebooks/forum/ | Community Forum |
+
+---
+
+## 🛠️ Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build
+npm run build
+```
+
+---
+
+## 📦 Project Structure
+
+```
+civontology-notebooks/
+├── .obsidian/                    # Obsidian config + plugin
+│   └── plugins/
+│       └── civontology-templates/  # Auto-template plugin
+├── src/
+│   ├── content/docs/
+│   │   ├── index.md              # Homepage
+│   │   ├── forum.md              # Community forum (Giscus)
+│   │   ├── sections/             # Synced from Obsidian folders
+│   │   │   ├── Ontology/
+│   │   │   ├── Brand/
+│   │   │   └── about.md
+│   │   └── developers/           # Developers folder (separate!)
+│   │       ├── index.md
+│   │       ├── api.md
+│   │       └── contributing.md
+│   ├── components/
+│   │   ├── Giscus.astro          # Comments component
+│   │   └── PageComments.astro
+│   └── styles/
+│       └── custom.css            # Black theme + light mode
+├── astro.config.mjs
+└── package.json
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo
+2. Create a branch: `git checkout -b my-notes`
+3. Add notes to the Obsidian vault
+4. Run `publish-note.sh`
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+See the main repo: https://github.com/labsbytir/civontology

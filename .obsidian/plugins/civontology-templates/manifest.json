@@ -1,0 +1,10 @@
+{
+  "id": "civontology-templates",
+  "name": "Civontology Templates",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Auto-adds frontmatter templates for notes and sections in the Civontology Notebook",
+  "author": "Civontology",
+  "authorUrl": "https://github.com/labsbytir",
+  "isDesktopOnly": false
+}

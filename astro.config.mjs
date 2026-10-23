@@ -29,7 +29,11 @@ export default defineConfig({
         },
         {
           label: '📚 Notes',
-          autogenerate: { directory: 'sections' },  // Obsidian folders become sections here
+          autogenerate: { directory: 'sections' },  // All folders EXCEPT Developers
+        },
+        {
+          label: '💻 Developers',
+          autogenerate: { directory: 'developers' },  // Developers folder - SEPARATE!
         },
       ],
       customCss: [
