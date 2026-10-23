@@ -2,7 +2,16 @@
 
 A digital garden of notes on civontology, built with **Astro + Starlight**.
 
-🌐 **Live Site:** https://notebooks.civontology.com
+🌐 **Live Site:** https://labsbytir.github.io/civontology-notebooks/
+
+## Theme and deployment
+
+- Built with **Astro + Starlight Vintage**, not Quartz.
+- Black background by default; the header toggle switches to white and remembers your choice.
+- The header stays fixed while scrolling. White and dark Civontology logos alternate with the theme.
+- GitHub Pages currently serves this project at `/civontology-notebooks/`. Keep `site` and `base` in `astro.config.mjs` aligned with that URL; using `/` here breaks CSS, scripts, and logos.
+- `npm run build` also checks the generated asset paths and forum embed to prevent another unstyled deployment. This check requires Python 3 (available on GitHub's Ubuntu runner).
+- The custom domain is not enabled on GitHub Pages yet. When its DNS and Pages configuration are ready, update `site` to `https://notebooks.civontology.com` and `base` to `/`, including homepage links and the asset-check base.
 
 ---
 

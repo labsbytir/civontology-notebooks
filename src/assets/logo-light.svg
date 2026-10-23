@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 180" role="img" aria-labelledby="title">
+  <title id="title">civontology logo</title>
+  <g transform="translate(0 10) rotate(-10 80 80)">
+    <rect x="30" y="30" width="46" height="46" rx="10" fill="#c9ef79"/>
+    <rect x="84" y="30" width="46" height="46" rx="10" fill="#c9ef79" opacity=".65"/>
+    <rect x="30" y="84" width="46" height="46" rx="10" fill="#c9ef79" opacity=".45"/>
+    <rect x="84" y="84" width="46" height="46" rx="10" fill="#c9ef79"/>
+  </g>
+  <text x="190" y="132" fill="#171914" font-family="'Geist Variable', Geist, Arial, sans-serif" font-size="112" font-weight="700" letter-spacing="-7">civontology<tspan fill="#c9ef79">.</tspan></text>
+</svg>

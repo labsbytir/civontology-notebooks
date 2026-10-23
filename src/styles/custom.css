@@ -1,372 +1,76 @@
-/* ============================================
-   CIVONTOLOGY NOTEBOOK - Custom Theme
-   Black theme with dark/light mode support
-   Compatible with Starlight v0.42+
-   ============================================ */
-
-/* ============================================
-   CSS VARIABLES - Dark Mode (Black Theme)
-   Use both :root and [data-theme=dark] for compatibility
-   ============================================ */
-
-/* Dark mode (default) - highest specificity */
-:root,
-:root[data-theme='dark'],
-:root[data-theme=dark],
-html[data-theme='dark'],
-html[data-theme=dark],
-[data-theme='dark'],
-[data-theme=dark] {
-  /* Base colors - pure black theme */
-  --sl-color-black: #000000;
-  --sl-color-white: #ffffff;
-  --sl-color-gray-1: #f5f5f5;
-  --sl-color-gray-2: #e5e5e5;
-  --sl-color-gray-3: #cccccc;
-  --sl-color-gray-4: #999999;
-  --sl-color-gray-5: #666666;
-  --sl-color-gray-6: #444444;
-  --sl-color-gray-7: #333333;
-
-  /* Accent colors - purple/violet */
-  --sl-color-accent-low: #1a0b2e;
-  --sl-color-accent: #8b5cf6;
-  --sl-color-accent-high: #a78bfa;
-
-  /* Background colors */
-  --sl-color-bg: #000000;
-  --sl-color-bg-nav: #0a0a0a;
-  --sl-color-bg-sidebar: #050505;
-  --sl-color-bg-inline-code: #1a1a1a;
-
-  /* Text colors */
+/* Unlayered overrides take precedence over Starlight and Vintage layers. */
+:root {
+  --sl-color-black: #000;
+  --sl-color-white: #fff;
+  --sl-color-bg: #000;
+  --sl-color-bg-nav: #000;
+  --sl-color-bg-sidebar: #000;
   --sl-color-text: #e5e5e5;
-  --sl-color-text-accent: #a78bfa;
-  --sl-color-text-invert: #000000;
-
-  /* Border colors */
-  --sl-color-hairline: #262626;
-  --sl-color-hairline-light: #262626;
-  --sl-color-hairline-shade: #1a1a1a;
-
-  /* Shadow */
-  --sl-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
-  --sl-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
-  --sl-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-
-  /* Code highlighting */
-  color-scheme: dark;
+  --sl-color-accent: #a78bfa;
+  --sl-color-accent-high: #c4b5fd;
+  --sl-color-accent-low: #211339;
+  --sl-color-text-accent: #c4b5fd;
+  --sl-vintage-page-bg-color: #000;
+  --sl-vintage-page-bg-color-top: #000;
+  --sl-vintage-page-bg-color-bottom: #000;
 }
 
-/* ============================================
-   CSS VARIABLES - Light Mode
-   ============================================ */
-
-:root[data-theme='light'],
-:root[data-theme=light],
-html[data-theme='light'],
-html[data-theme=light],
-[data-theme='light'],
-[data-theme=light] {
-  /* Base colors - clean white theme */
-  --sl-color-black: #ffffff;
-  --sl-color-white: #000000;
-  --sl-color-gray-1: #1a1a1a;
-  --sl-color-gray-2: #333333;
-  --sl-color-gray-3: #666666;
-  --sl-color-gray-4: #999999;
-  --sl-color-gray-5: #cccccc;
-  --sl-color-gray-6: #e5e5e5;
-  --sl-color-gray-7: #f5f5f5;
-
-  /* Accent colors - same purple */
-  --sl-color-accent-low: #ede9fe;
-  --sl-color-accent: #7c3aed;
-  --sl-color-accent-high: #8b5cf6;
-
-  /* Background colors */
-  --sl-color-bg: #ffffff;
-  --sl-color-bg-nav: #fafafa;
-  --sl-color-bg-sidebar: #f5f5f5;
-  --sl-color-bg-inline-code: #f0f0f0;
-
-  /* Text colors */
+:root[data-theme='light'] {
+  --sl-color-black: #fff;
+  --sl-color-white: #000;
+  --sl-color-bg: #fff;
+  --sl-color-bg-nav: #fff;
+  --sl-color-bg-sidebar: #fff;
   --sl-color-text: #1a1a1a;
-  --sl-color-text-accent: #7c3aed;
-  --sl-color-text-invert: #ffffff;
-
-  /* Border colors */
-  --sl-color-hairline: #e5e5e5;
-  --sl-color-hairline-light: #e5e5e5;
-  --sl-color-hairline-shade: #d4d4d4;
-
-  /* Shadow */
-  --sl-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --sl-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --sl-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-
-  /* Code highlighting */
-  color-scheme: light;
+  --sl-color-accent: #6d28d9;
+  --sl-color-accent-high: #5b21b6;
+  --sl-color-accent-low: #ede9fe;
+  --sl-color-text-accent: #6d28d9;
+  --sl-vintage-page-bg-color: #fff;
+  --sl-vintage-page-bg-color-top: #fff;
+  --sl-vintage-page-bg-color-bottom: #fff;
 }
 
-/* ============================================
-   FORCE BACKGROUND COLORS (override Starlight defaults)
-   ============================================ */
-
-/* Dark mode body background */
-:root[data-theme='dark'] body,
-:root[data-theme=dark] body,
-[data-theme='dark'] body,
-[data-theme=dark] body,
-body {
-  background-color: var(--sl-color-bg, #000000) !important;
-  color: var(--sl-color-text, #e5e5e5) !important;
-}
-
-/* Light mode body background */
-:root[data-theme='light'] body,
-:root[data-theme=light] body,
-[data-theme='light'] body,
-[data-theme=light] body {
-  background-color: var(--sl-color-bg, #ffffff) !important;
-  color: var(--sl-color-text, #1a1a1a) !important;
-}
-
-/* Header background */
-:root[data-theme='dark'] header,
-:root[data-theme=dark] header,
-[data-theme='dark'] header,
-[data-theme=dark] header,
+/* Keep Starlight's fixed header and its matching content/sidebar offsets. */
 header.header {
-  background-color: var(--sl-color-bg-nav, #0a0a0a) !important;
-  border-bottom: 1px solid var(--sl-color-hairline, #262626) !important;
+  background: var(--sl-color-bg-nav);
+  border-bottom: 1px solid var(--sl-color-hairline-light);
 }
 
-:root[data-theme='light'] header,
-:root[data-theme=light] header,
-[data-theme='light'] header,
-[data-theme=light] header {
-  background-color: var(--sl-color-bg-nav, #fafafa) !important;
-  border-bottom: 1px solid var(--sl-color-hairline, #e5e5e5) !important;
+.site-title img {
+  width: 15rem;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Sidebar background */
-:root[data-theme='dark'] nav.sidebar,
-:root[data-theme=dark] nav.sidebar,
-:root[data-theme='dark'] .sidebar-pane,
-:root[data-theme=dark] .sidebar-pane,
-[data-theme='dark'] nav.sidebar,
-[data-theme=dark] nav.sidebar,
-[data-theme='dark'] .sidebar-pane,
-[data-theme=dark] .sidebar-pane,
-.sidebar-pane {
-  background-color: var(--sl-color-bg-sidebar, #050505) !important;
+/* Keep the theme toggle available on mobile, including the splash homepage. */
+@media screen and (width < 50rem) {
+  header .right-group {
+    display: flex;
+    flex-shrink: 0;
+  }
+
+  header .right-group .social-icons,
+  header .right-group starlight-lang-select {
+    display: none;
+  }
 }
 
-:root[data-theme='light'] nav.sidebar,
-:root[data-theme=light] nav.sidebar,
-:root[data-theme='light'] .sidebar-pane,
-:root[data-theme=light] .sidebar-pane,
-[data-theme='light'] nav.sidebar,
-[data-theme=light] nav.sidebar,
-[data-theme='light'] .sidebar-pane,
-[data-theme=light] .sidebar-pane {
-  background-color: var(--sl-color-bg-sidebar, #f5f5f5) !important;
+.forum-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 2rem;
 }
-
-/* ============================================
-   ACCENT COLORS (Links, buttons, etc.)
-   ============================================ */
-
-:root[data-theme='dark'] a,
-:root[data-theme=dark] a,
-[data-theme='dark'] a,
-[data-theme=dark] a,
-a {
-  color: var(--sl-color-accent, #8b5cf6) !important;
-}
-
-:root[data-theme='light'] a,
-:root[data-theme=light] a,
-[data-theme='light'] a,
-[data-theme=light] a {
-  color: var(--sl-color-accent, #7c3aed) !important;
-}
-
-/* ============================================
-   STICKY HEADER
-   ============================================ */
-
-header.header {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 100 !important;
-  backdrop-filter: blur(10px) !important;
-  box-shadow: var(--sl-shadow-sm) !important;
-}
-
-/* ============================================
-   SIDEBAR LINKS
-   ============================================ */
-
-.sidebar a,
-nav.sidebar a {
-  color: var(--sl-color-text) !important;
-  border-radius: 6px !important;
-  transition: all 0.2s ease !important;
-}
-
-.sidebar a:hover,
-nav.sidebar a:hover {
-  background-color: var(--sl-color-accent-low) !important;
-  color: var(--sl-color-accent-high) !important;
-}
-
-.sidebar a[aria-current='page'],
-.sidebar a[aria-current='true'],
-nav.sidebar a[aria-current='page'],
-nav.sidebar a[aria-current='true'] {
-  background-color: var(--sl-color-accent) !important;
-  color: var(--sl-color-text-invert) !important;
-  font-weight: 600 !important;
-}
-
-/* ============================================
-   CODE BLOCKS
-   ============================================ */
-
-.sl-markdown-content pre,
-pre {
-  background-color: var(--sl-color-bg-inline-code, #1a1a1a) !important;
-  border: 1px solid var(--sl-color-hairline, #262626) !important;
-  border-radius: 8px !important;
-}
-
-.sl-markdown-content code,
-code {
-  background-color: var(--sl-color-bg-inline-code, #1a1a1a) !important;
-  color: var(--sl-color-accent-high, #a78bfa) !important;
-}
-
-/* ============================================
-   SEARCH
-   ============================================ */
-
-site-search,
-.site-search {
-  background-color: var(--sl-color-bg-nav) !important;
-  border: 1px solid var(--sl-color-hairline) !important;
-  border-radius: 8px !important;
-}
-
-/* ============================================
-   THEME TOGGLE
-   ============================================ */
-
-[data-theme-toggle] button,
-.theme-toggle button {
-  background-color: transparent !important;
-  border: 1px solid var(--sl-color-hairline) !important;
-  border-radius: 6px !important;
-  cursor: pointer !important;
-  transition: all 0.2s ease !important;
-}
-
-[data-theme-toggle] button:hover,
-.theme-toggle button:hover {
-  background-color: var(--sl-color-accent-low) !important;
-  border-color: var(--sl-color-accent) !important;
-}
-
-/* ============================================
-   FORUM BUTTONS
-   ============================================ */
 
 .forum-button {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  padding: 0.6rem 1.2rem !important;
-  border-radius: 6px !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
-  transition: all 0.2s ease !important;
+  display: inline-flex;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 0.5rem;
+  text-decoration: none;
 }
 
 .forum-button-primary {
-  background-color: var(--sl-color-accent) !important;
-  color: var(--sl-color-text-invert) !important;
-}
-
-.forum-button-primary:hover {
-  background-color: var(--sl-color-accent-high) !important;
-}
-
-.forum-button-secondary {
-  background-color: var(--sl-color-bg-inline-code) !important;
-  color: var(--sl-color-text) !important;
-  border: 1px solid var(--sl-color-hairline) !important;
-}
-
-.forum-button-secondary:hover {
-  background-color: var(--sl-color-accent-low) !important;
-  border-color: var(--sl-color-accent) !important;
-}
-
-/* ============================================
-   GISCUS CONTAINER
-   ============================================ */
-
-.giscus-container {
-  margin: 2rem 0 !important;
-  min-height: 400px !important;
-}
-
-/* ============================================
-   SCROLLBAR
-   ============================================ */
-
-::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--sl-color-bg-sidebar) !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--sl-color-gray-5) !important;
-  border-radius: 5px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--sl-color-accent) !important;
-}
-
-/* ============================================
-   SELECTION
-   ============================================ */
-
-::selection {
-  background-color: var(--sl-color-accent) !important;
-  color: var(--sl-color-text-invert) !important;
-}
-
-/* ============================================
-   MOBILE RESPONSIVE
-   ============================================ */
-
-@media (max-width: 800px) {
-  header.header {
-    padding: 0.75rem 1rem !important;
-  }
-
-  .forum-actions {
-    flex-direction: column !important;
-  }
-
-  .forum-button {
-    justify-content: center !important;
-  }
+  background: var(--sl-color-accent-low);
 }

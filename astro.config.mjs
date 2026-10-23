@@ -3,28 +3,28 @@ import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 import starlightLlmsTxt from 'starlight-llms-txt';
 import robotsTxt from 'astro-robots-txt';
-import expressiveCode from 'astro-expressive-code';
+import starlightThemeVintage from 'starlight-theme-vintage';
 import compress from 'astro-compress';
 import { githubStats } from 'starlight-github-stats';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://notebooks.civontology.com',
-  base: '/',
+  site: 'https://labsbytir.github.io',
+  base: '/civontology-notebooks/',
   output: 'static',
 
   integrations: [
-    // Expressive Code must come BEFORE Starlight (which includes MDX)
-    expressiveCode({
-      themes: ['github-dark', 'github-light'],
-      styleOverrides: { borderRadius: '8px' },
-    }),
-    
     starlight({
       title: 'Civontology Notebook',
       description: 'A digital garden of notes on civontology',
       logo: {
-        src: './src/assets/logo.svg',
+        dark: './src/assets/logo-dark.svg',
+        light: './src/assets/logo-light.svg',
+        alt: 'Civontology Notebook',
+        replacesTitle: true,
+      },
+      components: {
+        ThemeProvider: './src/components/ThemeProvider.astro',
       },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/labsbytir/civontology-notebooks' },
@@ -33,6 +33,7 @@ export default defineConfig({
       
       // Starlight Plugins
       plugins: [
+        starlightThemeVintage(),
         starlightLlmsTxt({
           projectName: 'Civontology Notebook',
           description: 'A digital garden of notes on civontology - LLM-friendly documentation',
