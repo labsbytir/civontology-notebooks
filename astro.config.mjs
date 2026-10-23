@@ -52,13 +52,13 @@ export default defineConfig({
           ],
         },
         {
-          label: '📚 Notes',
+          label: 'Notes',
           items: [
             { autogenerate: { directory: 'sections' } },
           ],
         },
         {
-          label: '💻 Developers',
+          label: 'Developers',
           items: [
             { autogenerate: { directory: 'developers' } },
           ],

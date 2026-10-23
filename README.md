@@ -87,7 +87,7 @@ Create an `index.md` in your folder:
 title: My Section
 description: My Section section
 sidebar:
-  label: "🧠 My Custom Label"  # Custom name with emoji
+  label: "My Custom Label"      # Custom name
   order: 1                     # Sort order (1 = top)
   collapsed: false             # Start expanded (default)
 ---
@@ -122,14 +122,14 @@ Folders in Obsidian become **collapsible sections** in the docs sidebar.
 
 ```
 civontology notebook/
-├── Ontology/           # → 📂 Section in sidebar
+├── Ontology/           # → Notes section
 │   ├── index.md        # Landing page (uses section template)
 │   ├── definition.md   # Page in section
 │   └── classes.md      # Page in section
-├── Brand/              # → 📂 Section in sidebar
+├── Brand/              # → Notes section
 │   ├── index.md
 │   └── guidelines.md
-└── about-me.md         # → 📄 Standalone page (no section)
+└── about-me.md         # → Standalone page (no section)
 ```
 
 ### Developers Folder (Separate!)
@@ -138,23 +138,23 @@ The `Developers/` folder is **separate** from other sections:
 
 ```
 civontology notebook/
-├── Ontology/           # → 📚 Notes section
-├── Brand/              # → 📚 Notes section
-├── Harvesting Data/    # → 📚 Notes section
-├── Developers/         # → 💻 Developers section (SEPARATE!)
+├── Ontology/           # → Notes section
+├── Brand/              # → Notes section
+├── Harvesting Data/    # → Notes section
+├── Developers/         # → Developers section (separate)
 │   ├── index.md
 │   ├── api.md
 │   └── contributing.md
-└── about-me.md         # → 📄 Standalone
+└── about-me.md         # → Standalone
 ```
 
 **Result in sidebar:**
 ```
-📚 Notes
-   📂 Ontology
-   📂 Brand
-   📂 Harvesting Data
-💻 Developers        ← Separate group!
+Notes
+   Ontology
+   Brand
+   Harvesting Data
+Developers            ← Separate group!
    API Documentation
    Contributing
 ```
@@ -167,17 +167,17 @@ Control how folders appear using frontmatter in `index.md`:
 
 | Property | Example | Effect |
 |----------|---------|--------|
-| `sidebar.label` | `label: "🧠 Ontology"` | Custom name with emoji |
+| `sidebar.label` | `label: "Ontology"` | Custom name |
 | `sidebar.order` | `order: 1` | Sort order (1 = top) |
 | `sidebar.collapsed` | `collapsed: true` | Start collapsed |
 | `sidebar.hidden` | `hidden: true` | Hide from sidebar |
 
 ### Examples
 
-**Custom Label with Emoji:**
+**Custom Label:**
 ```yaml
 sidebar:
-  label: "🧠 Ontology"
+  label: "Ontology"
 ```
 
 **Start Collapsed:**

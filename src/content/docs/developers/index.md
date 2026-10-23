@@ -2,7 +2,7 @@
 title: Developers
 description: Developer resources and documentation
 sidebar:
-  label: "💻 Developers"
+  label: "Developers"
   order: 1
   collapsed: false
 ---

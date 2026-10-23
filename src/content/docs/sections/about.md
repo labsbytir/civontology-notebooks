@@ -2,7 +2,7 @@
 title: About
 description: About this notebook
 sidebar:
-  label: "ℹ️ About"
+  label: "About"
   order: 99
 ---
 

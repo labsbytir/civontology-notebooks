@@ -2,7 +2,7 @@
 title: Brand
 description: Brand guidelines and assets
 sidebar:
-  label: "🎨 Brand"
+  label: "Brand"
   order: 2
   collapsed: true
 ---
