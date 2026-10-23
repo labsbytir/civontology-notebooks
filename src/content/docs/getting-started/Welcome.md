@@ -1,4 +1,6 @@
 ---
+title: Welcome
+description: Welcome to the Civontology Notebook
 dg-home: true
 dg-publish: true
 ---
