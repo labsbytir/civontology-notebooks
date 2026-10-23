@@ -1,10 +1,9 @@
 ---
-title: Welcome
-description: Welcome
+dg-home: true
+dg-publish: true
 ---
-
 ## Beta One
-![[IMG_3DBAE4556CD5-1.jpeg]]
+![IMG_3DBAE4556CD5-1.jpeg](/civontology-notebooks/images/IMG_3DBAE4556CD5-1.jpeg)
 
 civontology was created to be a protective measure for the fourth estate (the press). OSINT has become monetized by larger corporations (P....tir). We as the working class must be able to protect our communities and hold our leaders accountable. This platform offers a way to search laws, news, social media, historical government actions, arrests, local leaders, campaign finance and much more. civontology is in beta and features may change along with how the app looks and functions.
 
@@ -12,7 +11,7 @@ Currently there are 10 spots for testers. Testers will use this very notebook to
 
 ## Meet the founder: 
 
-![[IMG_2667.jpg]]
+![IMG_2667.jpg](/civontology-notebooks/images/IMG_2667.jpg)
 
 Hi, I'm Penelope. I started my journey into citizen journalism during 2025. I have been a organizer for nearly 12 years. (Time Flies!!!). 
 
