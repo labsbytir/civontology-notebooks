@@ -39,22 +39,33 @@ Now every save auto-publishes!
 
 ---
 
-## 🎨 Obsidian Plugin: Civontology Templates
+## Obsidian Plugin: Civontology Templates
 
-This vault includes a custom plugin that auto-adds templates.
+This vault includes a custom plugin with a **publish panel**, templates, and auto-frontmatter.
+
+### Publish Panel (Right Sidebar)
+
+Click the **rocket icon** in the left ribbon to open the publish panel:
+
+- **Publish to Web** button — syncs notes and deploys to GitHub Pages
+- **Template buttons** — New Note, New Section, New Draft
+- **Quick Links** — Live Site, Community Forum, GitHub Repo, Discussions
+- **Publish Log** — real-time output from the publish script
 
 ### Commands (Ctrl/Cmd + P)
 
 | Command | What It Does |
 |---------|--------------|
+| **Open Publish Panel** | Opens the publish panel in the right sidebar |
+| **Publish Notebook to Web** | Runs the publish script directly |
 | **Create Note with Template** | Creates note with frontmatter |
 | **Create Section with Template** | Creates folder + index.md with section frontmatter |
 | **Create Hidden Note** | Creates note hidden from sidebar |
 | **Insert Note Template** | Inserts template at cursor |
 | **Insert Section Template** | Inserts section template at cursor |
 
-### Ribbon Icon
-Click the **📝 file-plus icon** in the left sidebar to create a new note.
+### Ribbon Icons
+- **Rocket icon** — opens the publish panel
 
 ### Auto-Template
 When you create a new `.md` file, the plugin auto-adds:
@@ -114,49 +125,55 @@ This note won't appear in the sidebar.
 
 ---
 
-## 📁 Folder Structure
+## Folder Structure
 
-Folders in Obsidian become **collapsible sections** in the docs sidebar.
+Every folder in Obsidian becomes its own **top-level section** in the docs sidebar.
+The `Getting Started` folder is **pinned first**.
 
-### Basic Structure
+### Structure
 
 ```
 civontology notebook/
-├── Ontology/           # → Notes section
+├── Getting Started/    ← pinned FIRST section
+│   ├── Welcome.md
+│   ├── Notices.md
+│   └── Change Log.md
+├── Ontology/           ← own sidebar section
 │   ├── index.md        # Landing page (uses section template)
-│   ├── definition.md   # Page in section
-│   └── classes.md      # Page in section
-├── Brand/              # → Notes section
+│   ├── definition.md
+│   └── classes.md
+├── Brand/              ← own sidebar section
 │   ├── index.md
-│   └── guidelines.md
-└── about-me.md         # → Standalone page (no section)
-```
-
-### Developers Folder (Separate!)
-
-The `Developers/` folder is **separate** from other sections:
-
-```
-civontology notebook/
-├── Ontology/           # → Notes section
-├── Brand/              # → Notes section
-├── Harvesting Data/    # → Notes section
-├── Developers/         # → Developers section (separate)
+│   └── logo.md
+├── Developers/         ← own sidebar section
 │   ├── index.md
 │   ├── api.md
 │   └── contributing.md
-└── about-me.md         # → Standalone
+├── notes/              ← own sidebar section
+│   └── test-note.md
+└── about.md            ← standalone page (no section)
 ```
 
 **Result in sidebar:**
 ```
-Notes
-   Ontology
+Getting Started        ← pinned first!
+   Community Forum
+   Change Log
+   Notices
+   Welcome
+Brand
    Brand
-   Harvesting Data
-Developers            ← Separate group!
+   Logo
+Developers
+   Developers
    API Documentation
    Contributing
+Notes
+   Test Note
+Ontology
+   Ontology
+   Classes
+   Definition
 ```
 
 ---
