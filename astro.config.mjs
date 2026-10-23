@@ -28,12 +28,8 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Notes',
-          autogenerate: { directory: 'notes' },
-        },
-        {
-          label: 'Discussions',
-          autogenerate: { directory: 'discussions' },
+          label: '📚 Notes',
+          autogenerate: { directory: 'sections' },  // Obsidian folders become sections here
         },
       ],
       customCss: [
