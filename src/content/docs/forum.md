@@ -10,7 +10,7 @@ import Giscus from '../../components/Giscus.astro';
 Welcome to the Civontology Notebook community forum! This is a place to discuss, ask questions, and share ideas.
 
 <div class="forum-actions" style="margin: 2rem 0; display: flex; gap: 1rem; flex-wrap: wrap;">
-  <a href="https://github.com/labsbytir/civontology-notebooks/discussions/new?category=General"
+  <a href="https://github.com/labsbytir/civontology-notebooks/discussions/new?category=general"
      target="_blank"
      rel="noopener noreferrer"
      class="forum-button forum-button-primary">
@@ -28,9 +28,9 @@ Welcome to the Civontology Notebook community forum! This is a place to discuss,
 
 <Giscus
   repo="labsbytir/civontology-notebooks"
-  repoId="R_kgDOVUJ1oA"
+  repoId="R_kgDOVUOBGQ"
   category="General"
-  categoryId="YOUR_CATEGORY_ID"
+  categoryId="DIC_kwDOVUOBGc4DJYl6"
   mapping="pathname"
   theme="preferred_color_scheme"
 />

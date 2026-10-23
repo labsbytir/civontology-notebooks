@@ -1,9 +1,9 @@
 ---
 interface Props {
-  repo: string;
-  repoId: string;
-  category: string;
-  categoryId: string;
+  repo?: string;
+  repoId?: string;
+  category?: string;
+  categoryId?: string;
   mapping?: 'pathname' | 'url' | 'title' | 'number';
   theme?: string;
   lang?: string;
@@ -12,34 +12,19 @@ interface Props {
 }
 
 const {
-  repo,
-  repoId,
-  category,
-  categoryId,
+  repo = 'labsbytir/civontology-notebooks',
+  repoId = 'R_kgDOVUOBGQ',
+  category = 'General',
+  categoryId = 'DIC_kwDOVUOBGc4DJYl6',
   mapping = 'pathname',
   theme = 'preferred_color_scheme',
   lang = 'en',
   inputPosition = 'bottom',
   reactionsEnabled = true,
 } = Astro.props;
-
-const giscusConfig = JSON.stringify({
-  repo,
-  repoId,
-  category,
-  categoryId,
-  mapping,
-  strict: '0',
-  reactionsEnabled: reactionsEnabled ? '1' : '0',
-  emitMetadata: '0',
-  inputPosition,
-  theme,
-  lang,
-  loading: 'lazy',
-});
 ---
 
-<div class="giscus-container" data-giscus-config={giscusConfig}>
+<div class="giscus-container">
   <script
     is:inline
     src="https://giscus.app/client.js"
