@@ -286,3 +286,61 @@ civontology-notebooks/
 ## 📄 License
 
 See the main repo: https://github.com/labsbytir/civontology
+
+---
+
+## 🔌 Integrations
+
+This site uses the following Astro & Starlight integrations:
+
+### Core (Astro)
+| Integration | Purpose | Files Generated |
+|-------------|---------|-----------------|
+| `@astrojs/starlight` | Documentation theme | - |
+| `@astrojs/sitemap` | XML sitemap | `sitemap-index.xml`, `sitemap-0.xml` |
+| `astro-robots-txt` | robots.txt | `robots.txt` |
+| `astro-expressive-code` | Syntax highlighting | Better code blocks |
+| `astro-compress` | Asset compression | Smaller HTML/CSS/JS (20-90KB savings) |
+
+### Starlight Plugins
+| Plugin | Purpose | Files Generated |
+|--------|---------|-----------------|
+| `starlight-llms-txt` | LLM-friendly docs | `llms.txt`, `llms-full.txt`, `llms-small.txt` |
+| `starlight-github-stats` | GitHub stats in header | Stars, forks, version |
+
+### LLM-Friendly Output
+
+The site generates LLM-friendly files:
+
+- **`/llms.txt`** - Index of all documentation
+- **`/llms-full.txt`** - Complete documentation in one file
+- **`/llms-small.txt`** - Compact version for token-limited contexts
+
+These files help AI assistants (ChatGPT, Claude, etc.) understand and cite your documentation.
+
+### SEO & Discoverability
+
+- **`/robots.txt`** - Allows all crawlers, links to sitemap
+- **`/sitemap-index.xml`** - All pages for search engines
+- **Schema.org JSON-LD** - Structured data for rich snippets
+- **Open Graph tags** - Social media previews
+
+### Performance
+
+- **Compression**: HTML (-5%), JS (-10-56%), CSS, images, SVG
+- **Total savings**: ~110KB per build
+- **Pagefind search**: Fast client-side search
+
+---
+
+## 📦 Tech Stack
+
+| Layer | Technology | Version |
+|-------|-----------|---------|
+| Framework | Astro | 7.4.2 |
+| Theme | Starlight | 0.42.6 |
+| Content | Markdown + MDX | - |
+| Search | Pagefind | Built-in |
+| Comments | Giscus | GitHub Discussions |
+| Hosting | GitHub Pages | - |
+| CI/CD | GitHub Actions | - |
