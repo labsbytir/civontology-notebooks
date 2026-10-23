@@ -1,4 +1,19 @@
 /* Unlayered overrides take precedence over Starlight and Vintage layers. */
+/* Force solid backgrounds: Vintage uses a gradient on body::before. */
+:root,
+body,
+body::before {
+  background: #000;
+  background-image: none;
+}
+
+:root[data-theme='light'],
+:root[data-theme='light'] body,
+:root[data-theme='light'] body::before {
+  background: #fff;
+  background-image: none;
+}
+
 :root {
   --sl-color-black: #000;
   --sl-color-white: #fff;
