@@ -6,6 +6,34 @@ import robotsTxt from 'astro-robots-txt';
 import starlightThemeVintage from 'starlight-theme-vintage';
 import compress from 'astro-compress';
 import { githubStats } from 'starlight-github-stats';
+import { readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+// Every folder in src/content/docs becomes its own top-level sidebar section.
+// "getting-started" is pinned first.
+const docsDir = join(process.cwd(), 'src/content/docs');
+const folders = readdirSync(docsDir, { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .map((d) => d.name)
+  .filter((name) => name !== 'getting-started')
+  .sort((a, b) => a.localeCompare(b));
+
+const slugToLabel = (slug) =>
+  slug.split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+const sidebar = [
+  {
+    label: 'Getting Started',
+    items: [
+      { label: 'Community Forum', slug: 'forum' },
+      { autogenerate: { directory: 'getting-started' } },
+    ],
+  },
+  ...folders.map((folder) => ({
+    label: slugToLabel(folder),
+    items: [{ autogenerate: { directory: folder } }],
+  })),
+];
 
 // https://astro.build/config
 export default defineConfig({
@@ -43,27 +71,7 @@ export default defineConfig({
         }),
       ],
       
-      sidebar: [
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'Welcome', slug: 'index' },
-            { label: 'Community Forum', slug: 'forum' },
-          ],
-        },
-        {
-          label: 'Notes',
-          items: [
-            { autogenerate: { directory: 'sections' } },
-          ],
-        },
-        {
-          label: 'Developers',
-          items: [
-            { autogenerate: { directory: 'developers' } },
-          ],
-        },
-      ],
+      sidebar,
       
       customCss: [
         './src/styles/custom.css',
